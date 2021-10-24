@@ -1,0 +1,70 @@
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+<script>
+  // 펼침연산자, 구조분해할당
+
+  // 변수의 타입:
+  // - primitive type(원시타입): Number, String, Boolean
+  // - reference type(참조타입): Array, Object
+
+  let a = 10;
+  let b = a; //a: 10, b: 10
+  b = 20;
+  console.log(a, b);
+
+  const users = ["hong.k.d", "hong.k.s", "hong.k.m"];
+  // 의미 없는 카피: softcopy
+  // const newUsers = users;
+  // users.push("hong.k.y");
+
+  // 실제 복사는 아래처럼 값 자체를 넣어줘야한다.
+  // const newUsers = [];
+  // for(let i in users) {
+  //   newUsers.push(users[i])
+  // }
+  // newUsers[3] = "hong.k.y";
+
+  // 객체 복사: deep copy ES5
+  // const newUsers = JSON.parse(JSON.stringify(users)); // JS -> JSON
+  // const newUsers = _.cloneDeep(users);
+  // newUsers.push("hong.k.y");
+  // console.log(users);
+  // console.log(newUsers);
+
+  // const newUsers = users.slice();
+  // newUsers.push("hong.k.y");
+  // console.log(users);
+  // console.log(newUsers);
+
+  // ES6
+  const newUsers = [...users];
+  newUsers.push("hong.k.y");
+  console.log(users);
+  console.log(newUsers);
+
+  // 가변인자 - arguments
+  function sum() {
+    let result = 0;
+    for (let i = 0; i < arguments.length; i++) {
+      // console.log(arguments[i]);
+      result += arguments[i];
+    }
+    return result;
+  }
+
+  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  console.log(sum(...numbers));
+
+  // 객체의 복사
+  const car = {
+    name: "그렌저",
+    color: "white",
+  };
+
+  // const car2 = JSON.parse(JSON.stringify(car));
+  // const car2 = _.cloneDeep(car);
+  const car2 = { ...car };
+  car2.name = "소나타";
+
+  console.log(car);
+  console.log(car2);
+</script>
