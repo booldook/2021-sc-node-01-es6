@@ -1,0 +1,42 @@
+<script>
+  /* 
+  자바스크립트가 약한분
+  https://www.inflearn.com/courses?charge=free&s=javascript&order=search
+
+  ES6 달라진 점
+  1. let, const 추가
+  2. Arrow function
+  3. 펼침연산자(Spread Operator)
+  4. 구조분해할당(구: 비 구3조화 할당) - Destructuring assignment
+  5. for ~ of
+  6. Template String
+  7. String 객체에 추가 메서드 - includes(), startsWith(), endsWith() - 기존 indexOf() 대체
+  8. Set, Map 객체
+  9. 비동기(콜백: ES5) --> Promise(ES6) --> async/await(ES7)
+  */
+
+  // ES5
+  function fn(a, b) {
+    return a + b;
+  }
+
+  // ES6
+  const fn2 = (a, b) => {
+    return a + b;
+  };
+
+  // const fn2 = (a, b) => a + b;
+
+  /* function yearMonthDay(d) {
+    return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+  } */
+
+  /* const yearMonthDay = (d) => {
+    return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+  }; */
+
+  const yearMonthDay = (d) =>
+    d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+
+  console.log(yearMonthDay(new Date()));
+</script>
