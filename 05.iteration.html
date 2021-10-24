@@ -13,4 +13,15 @@
     sum += v;
   }
   console.log(sum);
+
+  // AJAX (Asynchronose Javascript And XML)
+  const xhr = new XMLHttpRequest();
+  xhr.addEventListener("load", onLoad);
+  xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
+  xhr.send();
+
+  function onLoad() {
+    const result = JSON.parse(xhr.responseText);
+    console.log(result);
+  }
 </script>
