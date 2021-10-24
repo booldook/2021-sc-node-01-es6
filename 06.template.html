@@ -54,16 +54,16 @@
 
       axios
         .get("https://jsonplaceholder.typicode.com/users")
-        .then((res) => {
+        .then(({ data }) => {
           let className = "user";
           let html = ``;
-          for (let v of res.data) {
+          for (let { id, name, phone, email } of data) {
             html += `
             <tr>
-              <td>${v.id}</td>
-              <td>${v.name}</td>
-              <td>${v.phone}</td>
-              <td>${v.email}</td>
+              <td>${id}</td>
+              <td>${name}</td>
+              <td>${phone}</td>
+              <td>${email}</td>
             </tr>`;
           }
           document.querySelector("#userLists tbody").innerHTML = html;
