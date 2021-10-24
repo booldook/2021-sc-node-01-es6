@@ -39,4 +39,28 @@
     .catch((err) => {
       console.log(err);
     });
+
+  const weather = {
+    dt: 1635055105984,
+    place: {
+      cityName: "Seoul",
+      country: "Kr",
+    },
+    temp: {
+      average: 12.5,
+      max: 15.2,
+      min: 5.3,
+    },
+  };
+
+  const seoulMinTemp = weather.temp.min;
+  const seoulMaxTemp = weather.temp.max;
+  const seoul = weather.place.cityName;
+  const korea = weather.place.country;
+
+  const { dt, place, temp } = weather;
+  const { cityName, country } = place;
+  const { average, min, max } = temp;
+
+  console.log(dt, cityName, country, average, min, max);
 </script>
