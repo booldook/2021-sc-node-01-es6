@@ -1,0 +1,39 @@
+<script>
+  // Object - 객체 - Literal Object
+  const calc = {
+    a: 10,
+    b: 20,
+    sum: function () {
+      // Method
+      return this.a + this.b;
+    },
+  };
+
+  console.log(calc.sum()); // 30
+
+  // ES5 - 생성자 객체
+  function Calc2() {
+    this.a = 10;
+    this.b = 20;
+    Calc2.prototype.sum = function () {
+      return this.a + this.b;
+    };
+  }
+
+  const calc2 = new Calc2();
+  console.log(calc2.sum());
+
+  // ES6
+  class Calc3 {
+    constructor() {
+      this.a = 10;
+      this.b = 20;
+    }
+    sum() {
+      return this.a + this.b;
+    }
+  }
+
+  const calc3 = new Calc3();
+  console.log(calc3.sum());
+</script>
