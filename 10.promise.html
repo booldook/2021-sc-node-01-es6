@@ -1,0 +1,24 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  // 1. users를 query
+  // 2. posts를 query
+  // 3. users에 본인의 posts를 넣는다.
+  const usersURL = "https://jsonplaceholder.typicode.com/users";
+  const postsURL = "https://jsonplaceholder.typicode.com/posts";
+  let users = null;
+  let posts = null;
+  let myUsers = null;
+  $.get(usersURL, (_users) => {
+    users = [..._users];
+    $.get(postsURL, (_posts) => {
+      posts = [..._posts];
+      myUsers = users.map((user) => {
+        return {
+          ...user,
+          posts: posts.filter((post) => post.userId === user.id),
+        };
+      });
+      console.log(myUsers);
+    });
+  });
+</script>
