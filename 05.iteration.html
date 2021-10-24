@@ -15,13 +15,28 @@
   console.log(sum);
 
   // AJAX (Asynchronose Javascript And XML)
-  const xhr = new XMLHttpRequest();
-  xhr.addEventListener("load", onLoad);
-  xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
-  xhr.send();
+  // const xhr = new XMLHttpRequest();
+  // xhr.addEventListener("load", onLoad);
+  // xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
+  // xhr.send();
 
-  function onLoad() {
-    const result = JSON.parse(xhr.responseText);
-    console.log(result);
-  }
+  // function onLoad() {
+  //   const result = JSON.parse(xhr.responseText);
+  //   console.log(result);
+  // }
+
+  axios
+    .get("https://jsonplaceholder.typicode.com/users")
+    /* .then((res) => {
+      console.log(res.data);
+    }) */
+    .then(({ data, headers }) => {
+      console.log(data);
+      console.log(headers);
+      const { expires, "content-type": contentType } = headers;
+      console.log(expires, contentType);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 </script>
