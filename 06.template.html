@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원리스트</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 0.5em;
+        border-bottom: 1px solid #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="max-width: 1000px; margin: 100px auto">
+      <table id="userLists">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      /* axios
+        .get("https://jsonplaceholder.typicode.com/users")
+        .then((res) => {
+          let className = "user";
+          let html = "";
+          for (let v of res.data) {
+            html += "<tr>";
+            html += "<td class='" + className + "'>" + v.id + "</td>";
+            html += "<td>" + v.name + "</td>";
+            html += "<td>" + v.phone + "</td>";
+            html += "<td>" + v.email + "</td>";
+            html += "</tr>";
+          }
+          document.querySelector("#userLists tbody").innerHTML = html;
+        })
+        .catch((err) => {
+          console.log(err);
+        }); */
+
+      axios
+        .get("https://jsonplaceholder.typicode.com/users")
+        .then((res) => {
+          let className = "user";
+          let html = ``;
+          for (let v of res.data) {
+            html += `
+            <tr>
+              <td>${v.id}</td>
+              <td>${v.name}</td>
+              <td>${v.phone}</td>
+              <td>${v.email}</td>
+            </tr>`;
+          }
+          document.querySelector("#userLists tbody").innerHTML = html;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    </script>
+  </body>
+</html>
