@@ -1,5 +1,5 @@
 <script>
-  // Object - 객체 - Literal Object
+  // Object - 객체 - Literal Object - 자료저장
   const calc = {
     a: 10,
     b: 20,
@@ -36,4 +36,30 @@
 
   const calc3 = new Calc3();
   console.log(calc3.sum());
+
+  // JSON - JavaScript Object Notation
+  // XML - eXtension Markup Language
 </script>
+
+<script>
+  // Javascript Object
+  const Json = {
+    Users: [
+      { id: 1, name: "Hong Kil Dong" },
+      { id: 2, name: "Hong Kil Sun" },
+    ],
+  };
+  const Users = JSON.stringify(Json);
+  console.log(Users);
+</script>
+
+<Users>
+  <User>
+    <id>1</id>
+    <name>Hong kil dong</name>
+  </User>
+  <User>
+    <id>2</id>
+    <name>Hong kil sun</name>
+  </User>
+</Users>
