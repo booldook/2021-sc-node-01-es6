@@ -63,4 +63,66 @@
   const { average, min, max } = temp;
 
   console.log(dt, cityName, country, average, min, max);
+
+  // 배열, 객체 for
+  const users = [
+    { id: 1, name: "Hong.k.d", age: 35, gender: "M", score: 55 },
+    { id: 2, name: "Hong.k.m", age: 25, gender: "M", score: 65 },
+    { id: 3, name: "Hwang.k.d", age: 56, gender: "M", score: 85 },
+    { id: 4, name: "Kim.k.d", age: 38, gender: "M", score: 75 },
+    { id: 5, name: "Lee.k.s", age: 48, gender: "F", score: 45 },
+    { id: 6, name: "Hong.k.s", age: 55, gender: "F", score: 88 },
+    { id: 7, name: "Hwang.s.y", age: 28, gender: "M", score: 98 },
+  ];
+
+  users.forEach((value, index, array) => {
+    console.log(value, index, array);
+  });
+
+  /* users.forEach((user, i) => {
+    user.msg = `당신은 ${user.score < 60 ? "불" : ""}합격 입니다.`;
+  }); */
+  /* const addMsgUsers = [];
+  users.forEach((user, i) => {
+    addMsgUsers.push({
+      ...user,
+      msg: `당신은 ${user.score < 60 ? "불" : ""}합격 입니다.`,
+    });
+  }); */
+  const addMsgUsers = users.map((user) => {
+    return {
+      ...user,
+      msg: `당신은 ${user.score < 60 ? "불" : ""}합격 입니다.`,
+    };
+  });
+  console.log(users);
+  console.log(addMsgUsers);
+
+  const passUsers = users.filter((user) => {
+    return user.score >= 60;
+  });
+  console.log("=== passUsers ===");
+  console.log(passUsers);
+
+  const failUsers = users.filter(({ score }) => score < 60);
+  console.log("=== failUsers ===");
+  console.log(failUsers);
+
+  // const failUsers2 = new Array();
+  const failUsers2 = [];
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].score < 60) {
+      failUsers2.push(users[i]);
+    }
+  }
+  console.log(failUsers2);
+
+  // users -> key(?), value(?), [key(?), value(?)]
+  // ES6 -> keys(), values(), entries()
+  const usersKey = Object.keys(users);
+  const usersValue = Object.values(users);
+  const usersEntrie = Object.entries(users);
+  console.log(usersKey);
+  console.log(usersValue);
+  console.log(usersEntrie);
 </script>
