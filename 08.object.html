@@ -1,0 +1,23 @@
+<script>
+  const arr = ["A", "B", "C"];
+  const obj = {
+    a: "A",
+    b: "B",
+    c: "C",
+  };
+
+  const map = new Map();
+  map.set("a", "AA");
+  map.set("b", "BB");
+  map.set("c", "CC");
+  console.log(map);
+
+  console.log(map.has("c"));
+  console.log(map.get("b"));
+
+  console.log(map.delete("b"));
+  console.log(map);
+  console.log(map.size);
+  map.clear();
+  console.log(map);
+</script>
