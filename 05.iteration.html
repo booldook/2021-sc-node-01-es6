@@ -1,0 +1,27 @@
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  // 자바스크립트 반복문
+  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  let sum = 0;
+  /* for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  } */
+  /* for (let i in arr) {
+    sum += arr[i];
+  } */
+  for (let v of arr) {
+    sum += v;
+  }
+  console.log(sum);
+
+  // AJAX (Asynchronose Javascript And XML)
+  // const xhr = new XMLHttpRequest();
+  // xhr.addEventListener("load", onLoad);
+  // xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
+  // xhr.send();
+
+  // function onLoad() {
+  //   const result = JSON.parse(xhr.responseText);
+  //   console.log(result);
+  // }
+</script>
