@@ -1,0 +1,24 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  const usersURL = "https://jsonplaceholder.typicode.com/users";
+
+  function userById(id) {
+    return new Promise(function (resolve, reject) {
+      $.get(usersURL, (_users) => {
+        const searchUsers = _users.filter((v) => {
+          return v.id === id;
+        });
+        resolve(searchUsers); // then
+        // reject("Error");  // catch
+      });
+    });
+  }
+
+  userById(4)
+    .then(function (users) {
+      console.log(users);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+</script>

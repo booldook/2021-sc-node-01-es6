@@ -1,0 +1,50 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  /* fn2();
+  const fn = function () {
+    // 함수표현식 - Hoisting 대상이 아님
+    console.log("fn");
+  };
+  fn();
+  function fn2() {
+    // 함수 선언문 - Hoisting 대상
+    console.log("fn2");
+  } */
+
+  function userById(id, cb) {
+    const usersURL = "https://jsonplaceholder.typicode.com/users";
+    let searchUser = null;
+    $.get(usersURL, (_users) => {
+      searchUser = _users.filter((v) => {
+        return id === v.id;
+      });
+      // cb("Error");
+      cb(null, searchUser);
+    });
+  }
+
+  userById(4, function (err, r) {
+    if (err) console.log(err);
+    else console.log(r);
+  });
+
+  // request -> DB Connection(Async) -> Query(Async) -> response(Async)
+
+  /* 
+  function a() {
+    return b();
+  }
+
+  function b() {
+    setTimeout(function () {
+      console.log("SetTimeout");
+    }, 0);
+    return c();
+  }
+
+  function c() {
+    return "Result";
+  }
+
+  console.log(a()); */
+</script>
