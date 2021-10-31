@@ -1,0 +1,65 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  const usersURL = "https://jsonplaceholder.typicode.com/users";
+  const postsURL = "https://jsonplaceholder.typicode.com/posts";
+
+  /* function findById(id) {
+    return new Promise(function (resolve, reject) {
+      $.get(usersURL)
+        .then(function (_users) {
+          resolve(_users);
+        })
+        .catch(function (err) {
+          reject(err);
+        });
+    });
+  } */
+
+  /*  async function findById(id) {
+    return new Promise(async function (resolve, reject) {
+      const users = await $.get(usersURL);
+      const searchUsers = users.filter((v) => {
+        return v.id === id;
+      });
+      resolve(searchUsers);
+    });
+  } */
+
+  async function getUser(id) {
+    try {
+      const user = await $.get(`${usersURL}/${id}`);
+      // const searchResult = await users.filter((v) => v.id === id);
+      return user;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  /* (async function () {
+    const user = await $.get(`${usersURL}/5`);
+    const posts = await $.get(`${postsURL}?userId=${user.id}`);
+    console.log(user);
+    console.log(posts);
+  })(); */
+
+  (async function () {
+    /* axios
+      .get(`${usersURL}?username=Bret`)
+      .then(({ data }) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      }); */
+    try {
+      const { data: users } = await axios.get(`${usersURL}?username=Bret`);
+      const { data: posts } = await axios.get(
+        `${postsURL}?userId=${users[0].id}`
+      );
+      console.log(users, posts);
+    } catch (err) {
+      console.log(err);
+    }
+  })();
+</script>
